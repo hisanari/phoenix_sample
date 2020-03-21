@@ -1,17 +1,25 @@
-// We need to import the CSS so that webpack will load it.
-// The MiniCssExtractPlugin is used to separate it out into
-// its own CSS file.
-import css from "../css/app.css"
+import css from '../css/app.css'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Button } from '@material-ui/core'
 
-// webpack automatically bundles all modules in your
-// entry points. Those entry points can be configured
-// in "webpack.config.js".
-//
-// Import dependencies
-//
-import "phoenix_html"
+class Layout extends React.Component {
+  constructor() {
+    super();
+    this.name = "init user";
+  }
+  render() {
+    return (
+      <div>
+        <h1>Hello! {this.name}</h1>
+        <h2>World! {this.get_sum(1, 1)}</h2>
+      </div>
+    )
+  }
+  get_sum(num_1, num_2) {
+    return num_1 + num_2;
+  }
+}
 
-// Import local files
-//
-// Local files can be imported directly using relative paths, for example:
-// import socket from "./socket"
+const app = document.getElementById('app');
+ReactDOM.render(<Layout />, app);
